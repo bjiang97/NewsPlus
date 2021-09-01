@@ -13,7 +13,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class RetrofitClient {
 
-    private static String API_KEY;
     private static final String BASE_URL = "https://newsapi.org/v2/";
 
     public static Retrofit newInstance() {
@@ -32,13 +31,7 @@ public class RetrofitClient {
         @Override
         public Response intercept(Chain chain) throws IOException {
 
-            Properties prop = new Properties();
-            String propFileName = "config.properties";
-
-            //        read config file by using input stream
-            InputStream inputStream = RetrofitClient.class.getClassLoader().getResourceAsStream(propFileName);
-            prop.load(inputStream);
-            API_KEY = prop.getProperty("newsapi_key");
+            String API_KEY = key.token;
 
             Request original = chain.request();
             Request request = original
