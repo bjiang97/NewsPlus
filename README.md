@@ -1,3 +1,3 @@
 # News+
 ### Highlights
-A News Mobile Application (Android)
+A Tinder-styled News Mobile Application (Android).
